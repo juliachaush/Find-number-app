@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Find-number-app/static/css/main.a2ffe77c.css",
+    "main.js": "/Find-number-app/static/js/main.5cbf275b.js",
+    "index.html": "/Find-number-app/index.html",
+    "main.a2ffe77c.css.map": "/Find-number-app/static/css/main.a2ffe77c.css.map",
+    "main.5cbf275b.js.map": "/Find-number-app/static/js/main.5cbf275b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a2ffe77c.css",
+    "static/js/main.5cbf275b.js"
+  ]
+}
