@@ -1,6 +1,7 @@
 import "./fileLoader.css";
 import GitHubIcon from "../Icons/GitHubIcon";
 import { useState } from "react";
+import Numbers from "../Numbers/Numbers";
 
 const FileLoader = () => {
   const [fileName, setFileName] = useState("");
@@ -26,7 +27,7 @@ const FileLoader = () => {
         const content = e.target.result;
         const numbers = content.split(/\r?\n/).map(Number);
         const start = performance.now();
-        calculateStatistics(numbers);
+        calculateNumbers(numbers);
         const end = performance.now();
         setCalcPerformance(((end - start) / 1000).toFixed(5));
       };
@@ -34,7 +35,7 @@ const FileLoader = () => {
     }
   };
 
-  const calculateStatistics = (numbers) => {
+  const calculateNumbers = (numbers) => {
     let max = numbers[0];
     let min = numbers[0];
     let sum = 0;
@@ -47,8 +48,8 @@ const FileLoader = () => {
 
     const average = (sum / numbers.length).toFixed(0);
     const median = calculateMedian(numbers);
-    const sequenceIncrease = longestIncreasingSubsequence(numbers);
-    const sequenceDecrease = longestDecreasingSubsequence(numbers);
+    const sequenceIncrease = increasingSubsequence(numbers);
+    const sequenceDecrease = decreasingSubsequence(numbers);
 
     setStats({ max, min, median, average, sequenceIncrease, sequenceDecrease });
     setIsLoading(false);
@@ -63,7 +64,7 @@ const FileLoader = () => {
       : ((sorted[mid - 1] + sorted[mid]) / 2).toFixed(0);
   };
 
-  const longestIncreasingSubsequence = (arr) => {
+  const increasingSubsequence = (arr) => {
     if (arr.length === 0) return [];
 
     let maxLength = 1;
@@ -91,7 +92,7 @@ const FileLoader = () => {
     return arr.slice(startIndex, endIndex + 1).length;
   };
 
-  function longestDecreasingSubsequence(arr) {
+  function decreasingSubsequence(arr) {
     if (arr.length === 0) return 0;
 
     let maxLength = 1;
@@ -142,49 +143,11 @@ const FileLoader = () => {
           </form>
         </div>
       </div>
-
-      <div className="result-content-wrapper">
-        <h2>Numbers</h2>
-        {isLoading && (
-          <p style={{ fontSize: "16px", color: "#0b80d4" }}>
-            Calculation of numbers...
-          </p>
-        )}
-        {!isLoading && (
-          <div>
-            <p>
-              Max value : <strong>{stats.max}</strong>
-            </p>
-            <p>
-              Min value: <strong>{stats.min}</strong>
-            </p>
-            <p>
-              Median value: <strong>{stats.median}</strong>
-            </p>
-            <p>
-              Average value: <strong>{stats.average}</strong>
-            </p>
-            <p>
-              The longest increasing sequence has:{" "}
-              <strong>{stats.sequenceIncrease}</strong> numbers
-            </p>
-            <p>
-              The longest decreasing sequence has:{" "}
-              <strong>{stats.sequenceDecrease}</strong> numbers
-            </p>
-          </div>
-        )}
-        {!isLoading ? (
-          <p>
-            Performance :{" "}
-            <strong style={{ color: "green" }}>{calcPerformance} sec. </strong>
-          </p>
-        ) : (
-          <p style={{ fontSize: "16px", color: "#0b80d4" }}>
-            Performance calculation...
-          </p>
-        )}
-      </div>
+      <Numbers
+        isLoading={isLoading}
+        calcPerformance={calcPerformance}
+        stats={stats}
+      />
     </div>
   );
 };

@@ -4,7 +4,7 @@ const GitHubIcon = () => {
   return (
     <div className="github-wrapper">
       <a
-        href="https://github.com/juliachaush?tab=repositories"
+        href="https://github.com/juliachaush/Find-number-app"
         target="_blank"
         rel="noopener noreferrer"
         className="github-corner"

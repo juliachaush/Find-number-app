@@ -66,13 +66,6 @@ h1 {
   font-weight: normal;
 }
 
-.result-content-wrapper {
-  position: fixed;
-  top: 65%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
 @media (max-width: 600px) {
   h1 {
     font-size: 2.2rem;
@@ -81,9 +74,6 @@ h1 {
   .input-file-trigger {
     padding: 12px 24px;
     font-size: 1.2em;
-  }
-  .result-content-wrapper {
-    top: 74%;
   }
 
   .overlay {
