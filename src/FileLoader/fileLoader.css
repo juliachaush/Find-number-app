@@ -1,0 +1,92 @@
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+h1 {
+  font-size: 3.2rem;
+  line-height: 1.1em;
+}
+
+.overlay {
+  width: 120px;
+  height: 370px;
+  transform: rotate(134deg);
+  position: absolute;
+  left: -165px;
+  top: -45px;
+}
+
+.input-file-container {
+  display: flex;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+}
+.input-file-trigger {
+  padding: 12px 24px;
+  background: #0b80d4;
+  color: #fff;
+  font-size: 1.5em;
+  transition: all 0.4s;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.input-file {
+  top: 0;
+  left: 0;
+  width: 0.1px;
+  opacity: 0;
+  cursor: pointer;
+}
+.input-file:hover + .input-file-trigger,
+.input-file-trigger:hover {
+  background: #34495e;
+  color: #39d2b4;
+}
+
+.file-return {
+  margin: 0;
+  font-style: italic;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.file-return:not(:empty) {
+  margin: 1em 0;
+}
+
+.file-return:not(:empty):before {
+  content: "Selected file: ";
+  font-style: normal;
+  font-weight: normal;
+}
+
+.result-content-wrapper {
+  position: fixed;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  .input-file-trigger {
+    padding: 12px 24px;
+    font-size: 1.2em;
+  }
+  .result-content-wrapper {
+    top: 74%;
+  }
+
+  .overlay {
+    display: none;
+  }
+}
