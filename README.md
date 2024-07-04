@@ -1,6 +1,6 @@
 # Find number app
 
-This project was created to do some calculations with numbers (https://juliachaush.github.io/Find-number-app/)
+This project was created to do some calculations with numbers. You can check a demo here (https://juliachaush.github.io/Find-number-app/)
 
 ## Getting Started
 
